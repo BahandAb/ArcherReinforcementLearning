@@ -60,7 +60,7 @@ if __name__ == '__main__':
         print(f"Could not auto-launch TensorBoard: {e}")
 
     # 5. Train
-    TIMESTEPS = 1000000 # Increased because multicore is faster!
+    TIMESTEPS = 1500000
     print(f"Training started for {TIMESTEPS} steps on {n_envs} cores...")
     model.learn(total_timesteps=TIMESTEPS)
     print("Training finished!")
