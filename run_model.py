@@ -1,7 +1,24 @@
 import gymnasium as gym
 from stable_baselines3 import PPO
 import os
+import webbrowser
+from tensorboard import program
 from archery_env import ArcheryGymEnv
+
+models_dir = "models"
+logs_dir = "logs"
+os.makedirs(models_dir, exist_ok=True)
+os.makedirs(logs_dir, exist_ok=True)
+
+try:
+    print("Launching TensorBoard...")
+    tb = program.TensorBoard()
+    tb.configure(argv=[None, '--logdir', logs_dir])
+    url = tb.launch()
+    print(f"TensorBoard started at {url}")
+    webbrowser.open(url)
+except Exception as e:
+    print(f"Could not auto-launch TensorBoard: {e}")
 
 def get_saved_models(directory="models"):
     if not os.path.exists(directory):
@@ -74,6 +91,7 @@ def main():
         print("\nStopping simulation...")
     finally:
         env.close()
+
 
 if __name__ == "__main__":
     main()
