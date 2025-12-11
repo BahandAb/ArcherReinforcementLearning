@@ -83,7 +83,7 @@ def main():
                 # Update the Environment's label so it draws on the next frame
                 env.accuracy_label = f"{accuracy:.1f}%"
                 
-                print(f"Shot: {shots_fired} | Hit: {reward >= 100} | Accuracy: {accuracy:.1f}%")
+                print(f"Shot: {shots_fired} | Hit: {reward >= 100} | Accuracy: {accuracy:.3f}%")
                 
                 obs, _ = env.reset()
                 

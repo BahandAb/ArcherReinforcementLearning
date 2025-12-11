@@ -62,7 +62,7 @@ class ArcheryGymEnv(gym.Env):
         raw_angle = action[0]
         angle_deg = np.interp(raw_angle, [-1, 1], [0, 85])
         raw_power = action[1]
-        power_val = np.interp(raw_power, [-1, 1], [15, 60])
+        power_val = np.interp(raw_power, [-1, 1], [10, 30]) # Originally 15 to 60
 
         rad_angle = math.radians(angle_deg)
         
